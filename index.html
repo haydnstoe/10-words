@@ -1,22 +1,201 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Interactive Quiz</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced English Vocabulary Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+
+        h1, h2 {
+            color: #1f4e79;
+        }
+
+        .word-list {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question p {
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #1f4e79;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #163a5c;
+        }
+
+        #results {
+            margin-top: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: crimson;
+        }
+    </style>
 </head>
 <body>
-  <h1>HTML Basics Quiz</h1>
-  <form id="quiz-form">
-    <div>
-      <p>1. What does HTML stand for?</p>
-      <input type="radio" name="q1" value="a"> Home Tool Markup Language<br>
-      <input type="radio" name="q1" value="b"> HyperText Markup Language<br>
-      <input type="radio" name="q1" value="c"> Hyperlink Text Management Language<br>
-    </div>
-    <button type="button" onclick="submitQuiz()">Submit</button>
-  </form>
-  <div id="result"></div>
 
-  <script src="script.js"></script>
+    <h1>Advanced English Vocabulary Quiz</h1>
+
+    <div class="word-list">
+        <h2>Vocabulary List</h2>
+        <ul>
+            <li>Ambiguous</li>
+            <li>Comprehensive</li>
+            <li>Conventional</li>
+            <li>Deteriorate</li>
+            <li>Elaborate</li>
+            <li>Implement</li>
+            <li>Inevitable</li>
+            <li>Substantial</li>
+            <li>Versatile</li>
+            <li>Meticulous</li>
+        </ul>
+    </div>
+
+    <div class="quiz-container">
+        <h2>Quiz</h2>
+
+        <form id="quizForm">
+
+            <div class="question">
+                <p>1. Which word means "unclear or having more than one meaning"?</p>
+                <label><input type="radio" name="q1" value="0"> Comprehensive</label><br>
+                <label><input type="radio" name="q1" value="1"> Ambiguous</label><br>
+                <label><input type="radio" name="q1" value="0"> Meticulous</label><br>
+                <label><input type="radio" name="q1" value="0"> Versatile</label>
+            </div>
+
+            <div class="question">
+                <p>2. A report that covers all important details is best described as:</p>
+                <label><input type="radio" name="q2" value="0"> Inevitable</label><br>
+                <label><input type="radio" name="q2" value="0"> Substantial</label><br>
+                <label><input type="radio" name="q2" value="1"> Comprehensive</label><br>
+                <label><input type="radio" name="q2" value="0"> Conventional</label>
+            </div>
+
+            <div class="question">
+                <p>3. Which word means "to put a plan into action"?</p>
+                <label><input type="radio" name="q3" value="1"> Implement</label><br>
+                <label><input type="radio" name="q3" value="0"> Deteriorate</label><br>
+                <label><input type="radio" name="q3" value="0"> Elaborate</label><br>
+                <label><input type="radio" name="q3" value="0"> Conventional</label>
+            </div>
+
+            <div class="question">
+                <p>4. If a situation becomes worse over time, it:</p>
+                <label><input type="radio" name="q4" value="0"> Achieves</label><br>
+                <label><input type="radio" name="q4" value="0"> Maintains</label><br>
+                <label><input type="radio" name="q4" value="1"> Deteriorates</label><br>
+                <label><input type="radio" name="q4" value="0"> Influences</label>
+            </div>
+
+            <div class="question">
+                <p>5. Someone who pays great attention to detail is:</p>
+                <label><input type="radio" name="q5" value="0"> Reliable</label><br>
+                <label><input type="radio" name="q5" value="1"> Meticulous</label><br>
+                <label><input type="radio" name="q5" value="0"> Significant</label><br>
+                <label><input type="radio" name="q5" value="0"> Accurate</label>
+            </div>
+
+            <div class="question">
+                <p>6. Which word means "certain to happen"?</p>
+                <label><input type="radio" name="q6" value="0"> Versatile</label><br>
+                <label><input type="radio" name="q6" value="1"> Inevitable</label><br>
+                <label><input type="radio" name="q6" value="0"> Conventional</label><br>
+                <label><input type="radio" name="q6" value="0"> Ambiguous</label>
+            </div>
+
+            <div class="question">
+                <p>7. A tool that can be used in many different ways is:</p>
+                <label><input type="radio" name="q7" value="1"> Versatile</label><br>
+                <label><input type="radio" name="q7" value="0"> Substantial</label><br>
+                <label><input type="radio" name="q7" value="0"> Conventional</label><br>
+                <label><input type="radio" name="q7" value="0"> Comprehensive</label>
+            </div>
+
+            <div class="question">
+                <p>8. Which word means "large, important, or considerable"?</p>
+                <label><input type="radio" name="q8" value="1"> Substantial</label><br>
+                <label><input type="radio" name="q8" value="0"> Accurate</label><br>
+                <label><input type="radio" name="q8" value="0"> Reliable</label><br>
+                <label><input type="radio" name="q8" value="0"> Elaborate</label>
+            </div>
+
+            <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+
+        </form>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function gradeQuiz() {
+            const form = document.getElementById('quizForm');
+            const answers = form.querySelectorAll('input[type="radio"\]:checked');
+
+            let score = 0;
+
+            answers.forEach(answer => {
+                score += Number(answer.value);
+            });
+
+            const total = 8;
+            const percentage = Math.round((score / total) * 100);
+
+            let message = "";
+
+            if (percentage >= 90) {
+                message = "Outstanding!";
+            } else if (percentage >= 75) {
+                message = "Great job!";
+            } else if (percentage >= 50) {
+                message = "Good effort. Keep practising.";
+            } else {
+                message = "Review the vocabulary list and try again.";
+            }
+
+            document.getElementById('results').innerHTML =
+                `Score: ${score}/${total} (${percentage}%)<br>${message}`;
+        }
+    </script>
 </body>
 </html>
